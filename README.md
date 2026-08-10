@@ -2,10 +2,7 @@
 
 Workshop prático de Databricks personalizado para o time da **Klabin**, com foco em
 **low-code**: Ingestão, Transformação de Dados, consumo em Linguagem Natural e Visualização —
-a **Data + AI Platform** de ponta a ponta. Versão **enxuta, para caber em 2 horas**.
-
-O evento acontece na unidade de **Telêmaco Borba (Paraná)**, e todos os dados representam a
-produção de celulose e papel do complexo local (unidades **Monte Alegre** e **Puma**).
+a **Data + AI Platform** de ponta a ponta.
 
 </br>
 
@@ -26,7 +23,7 @@ produção de celulose e papel do complexo local (unidades **Monte Alegre** e **
       <em>Databricks</em>
     </td>
     <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/juliandrof/workshop-klabin/main/images/marcio_circle.png" width="150"/><br>
+      <img src="https://raw.githubusercontent.com/juliandrof/workshop-klabin/main/images/marcio_circle.png?v=2" width="150"/><br>
       <strong>Marcio Arbex</strong><br>
       <em>Field Engineering Director</em><br>
       <em>Databricks</em>
