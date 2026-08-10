@@ -9,6 +9,33 @@ produção de celulose e papel do complexo local (unidades **Monte Alegre** e **
 
 </br>
 
+## Apresentadores
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="https://raw.githubusercontent.com/juliandrof/workshop-klabin/main/images/juliandro_circle.png" width="150"/><br>
+      <strong>Juliandro Figueiró</strong><br>
+      <em>Sr. Solutions Architect</em><br>
+      <em>Databricks</em>
+    </td>
+    <td align="center" width="33%">
+      <img src="https://raw.githubusercontent.com/juliandrof/workshop-klabin/main/images/jean_circle.png" width="150"/><br>
+      <strong>Jean Ertzogue</strong><br>
+      <em>Account Executive</em><br>
+      <em>Databricks</em>
+    </td>
+    <td align="center" width="33%">
+      <img src="https://raw.githubusercontent.com/juliandrof/workshop-klabin/main/images/marcio_circle.png" width="150"/><br>
+      <strong>Marcio Arbex</strong><br>
+      <em>Field Engineering Director</em><br>
+      <em>Databricks</em>
+    </td>
+  </tr>
+</table>
+
+</br>
+
 ## Ementa do Workshop (2 horas)
 
 | # | Lab | Tópicos | Duração |
