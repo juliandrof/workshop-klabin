@@ -48,7 +48,7 @@ display(spark.sql(f"""
 # MAGIC 2. **Nome**: `Dashboard Produção Klabin - <seu_nome>`
 # MAGIC 3. Na aba **Data**, adicione a tabela `workshop_klabin.<seu_nome>.gold_producao`
 # MAGIC    como dataset (ou cole `SELECT * FROM workshop_klabin.<seu_nome>.gold_producao`)
-# MAGIC 4. Na aba **Canvas**, abra o **Assistant** (ícone de IA / "Ask the assistant") e
+# MAGIC 4. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** (ícone de IA / "Ask the assistant") e
 # MAGIC    **cole o prompt padrão** da próxima célula. A IA vai gerar todos os widgets.
 
 # COMMAND ----------

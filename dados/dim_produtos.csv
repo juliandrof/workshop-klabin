@@ -1,8 +1,0 @@
-id_produto,nome_produto,categoria,tipo_fibra,gramatura_g_m2,mercado
-1,Celulose Fibra Curta,Celulose,Eucalipto,0,Exportação
-2,Celulose Fibra Longa,Celulose,Pínus,0,Exportação
-3,Celulose Fluff,Celulose,Pínus,0,Mercado Interno
-4,Kraftliner,Papel,Pínus,175,Embalagem
-5,White Top Kraftliner,Papel,Pínus,140,Embalagem
-6,Cartão,Papel,Mista,300,Embalagem
-7,Papel para Sacos,Papel,Pínus,80,Mercado Interno

@@ -61,13 +61,18 @@
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 4. Publicar a saída (operador Output) e executar
+# MAGIC ## 4. Configurar a saída (operador Output) e executar
 # MAGIC
-# MAGIC 1. Adicione um operador **Output** ligado ao resultado da transformação
-# MAGIC 2. Configure:
+# MAGIC O prompt do Genie Code **já gera o passo de Output** — você **não precisa criá-lo**,
+# MAGIC apenas **configurá-lo**:
+# MAGIC
+# MAGIC 1. Selecione o passo **Output** já gerado
+# MAGIC 2. Em **tipo de saída**, selecione **Table** — é o que **persiste** o resultado como
+# MAGIC    tabela gerenciada (sem isso o resultado fica apenas como prévia)
+# MAGIC 3. Confirme:
 # MAGIC    - **Table name**: `gold_producao`
 # MAGIC    - **Output location**: catálogo `workshop_klabin` + schema `<seu_nome>`
-# MAGIC 3. Clique em **Run** — a execução **cria ou substitui** a tabela gerenciada
+# MAGIC 4. Clique em **Run** — a execução **cria ou substitui** a tabela `gold_producao`
 # MAGIC
 # MAGIC > O Designer mostra o **grafo de linhagem** (lineage) entre as tabelas automaticamente.
 

@@ -7,7 +7,7 @@
 # MAGIC - Usa um **catálogo compartilhado** `workshop_klabin` (criado uma vez e reaproveitado)
 # MAGIC - Cria um **schema pessoal** com o seu nome, onde ficarão todas as suas tabelas
 # MAGIC
-# MAGIC **Importante:** Preencha o widget `nome_participante` com seu primeiro nome (sem espaços, sem acentos, minúsculo).
+# MAGIC **Importante:** Preencha o widget `nome_participante` no formato `nome_sobrenome` (sem acentos, minúsculo — ex.: `joao_silva`).
 
 # COMMAND ----------
 

@@ -77,7 +77,8 @@ O perfil mais simples é conceder **`ALL PRIVILEGES`** no catálogo `workshop_kl
 acesso a compute, Pipelines (LakeFlow Designer), Genie e Dashboards.
 
 > **Dica:** O catálogo `workshop_klabin` é **compartilhado** e criado uma única vez. Cada
-> participante trabalha em um **schema com o próprio nome** (`workshop_klabin.<nome>`).
+> participante trabalha em um **schema com o próprio nome**, no formato `nome_sobrenome`
+> (`workshop_klabin.<nome_sobrenome>`).
 
 </br>
 
@@ -129,8 +130,8 @@ workshop-klabin/
 
 1. Abra `00_Setup/00_configuracao_catalogo.py`
 2. **Execute a primeira célula** para o widget **nome_participante** aparecer
-3. Preencha com seu primeiro nome (sem espaços, sem acentos, minúsculo — ex.: `joao`)
-4. Execute as demais células — seu schema fica em `workshop_klabin.<seu_nome>`
+3. Preencha no formato **`nome_sobrenome`** (sem acentos, minúsculo — ex.: `joao_silva`)
+4. Execute as demais células — seu schema fica em `workshop_klabin.<nome_sobrenome>`
 
 ### Passo 3: Baixar os dados do workshop
 
@@ -163,20 +164,22 @@ em **XLSX**. Para fazer o upload no Lab 1, baixe-os para o seu computador:
 
 ### Instruções
 
-1. **Suba cada arquivo** da pasta `dados/` para o **seu schema** (`workshop_klabin.<seu_nome>`):
-   1. No menu lateral, abra **Catalog** > `workshop_klabin` > schema **`<seu_nome>`**
+1. **Suba cada arquivo** da pasta `dados/` para o **seu schema** (`workshop_klabin.<nome_sobrenome>`):
+   1. No menu lateral, abra **Catalog** > `workshop_klabin` > schema **`<nome_sobrenome>`**
    2. Clique em **Create** > **Create table** (Upload files)
-   3. Arraste o arquivo, mantenha **First row = header**
+   3. Arraste o arquivo. Para o **CSV** (`fato_producao`), a opção **First row = header** fica em **Advanced attributes** — expanda e mantenha-a ativada. (Nos **XLSX** das dimensões o cabeçalho já é detectado automaticamente.)
    4. **Table name** = nome do arquivo sem a extensão (ex.: `fato_producao`) → **Create table**
    5. Repita para os 3 arquivos
 
 | Arquivo | Tabela resultante |
 | -- | -- |
-| `fato_producao.csv` | `workshop_klabin.<nome>.fato_producao` |
-| `dim_maquinas.xlsx` | `workshop_klabin.<nome>.dim_maquinas` |
-| `dim_produtos.xlsx` | `workshop_klabin.<nome>.dim_produtos` |
+| `fato_producao.csv` | `workshop_klabin.<nome_sobrenome>.fato_producao` |
+| `dim_maquinas.xlsx` | `workshop_klabin.<nome_sobrenome>.dim_maquinas` |
+| `dim_produtos.xlsx` | `workshop_klabin.<nome_sobrenome>.dim_produtos` |
 
-2. **Valide** a ingestão executando `01b_validacao.py`
+2. **Valide** a ingestão. Como você está na página do **Catalog** (sem notebook aberto),
+   vá em **Workspace** > abra a Git folder `workshop-klabin` >
+   `01_Lab_Ingestao/01b_validacao.py`, preencha o widget `nome_participante` e clique em **Run all**.
 
 </br>
 
@@ -193,7 +196,7 @@ em **XLSX**. Para fazer o upload no Lab 1, baixe-os para o seu computador:
 
 Junta `fato_producao` com `dim_maquinas` e `dim_produtos` e calcula o **atingimento da meta**.
 
-1. Abra o **LakeFlow Designer** (**+ New** > **Visual data prep**)
+1. Abra o **LakeFlow Designer** (**+ New** > **Visual data prep**) e **renomeie** o rascunho no topo para `visual_prep_klabin_<nome_sobrenome>`
 2. Adicione as 3 tabelas como **Source**
 3. Abra o **Genie Code** e cole o prompt:
 
@@ -206,7 +209,8 @@ multiplicado por 100 e arredondado com 1 casa decimal. Salve o resultado como
 gold_producao.
 ```
 
-4. Adicione um operador **Output** → `gold_producao` no seu schema e clique em **Run**
+4. O prompt **já cria o passo de Output** — você não precisa adicioná-lo, apenas **configurá-lo**: selecione o tipo de saída **Table** (é o que **persiste** o resultado como tabela), confirme **Table name** `gold_producao` e o destino (catálogo `workshop_klabin` + schema `<nome_sobrenome>`)
+5. Clique em **Run** — a execução **cria ou substitui** a tabela `gold_producao`
 
 </br>
 
@@ -222,9 +226,13 @@ gold_producao.
 ### Instruções
 
 1. Execute o notebook para **adicionar comentários** à tabela Gold e às dimensões
-2. **Crie a Genie Agent**: **Genie** > **New**, adicione `gold_producao`, `dim_maquinas` e `dim_produtos`
-3. **Cole as instruções customizadas** (impressas pelo notebook) no campo **Instructions**
-4. **Teste** com perguntas como:
+2. **Crie a Genie Agent**: **Genie** (menu lateral) > **New**
+3. **Adicione as tabelas**: na aba **Configure**, clique em **Add tables** (seção **Data**),
+   navegue no **Catalog** até `workshop_klabin` > `<nome_sobrenome>` e **marque** as 3 tabelas:
+   `gold_producao`, `dim_maquinas` e `dim_produtos` > **Confirm**
+4. **Cole as instruções customizadas** (impressas pelo notebook) no campo **Instructions**,
+   também dentro da aba **Configure**
+5. **Teste** com perguntas como:
    - *"Qual máquina produziu mais no período?"*
    - *"Qual o atingimento médio da meta por unidade?"*
    - *"Compare a produção de celulose com a de papel"*
@@ -260,7 +268,7 @@ gold_producao.
 
 1. Vá em **Dashboards** > **Create dashboard** e nomeie `Dashboard Produção Klabin - <seu_nome>`
 2. Na aba **Data**, adicione a tabela `gold_producao` como dataset
-3. Na aba **Canvas**, abra o **Assistant** e **cole o prompt padrão** (impresso pelo notebook)
+3. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** e **cole o prompt padrão** (impresso pelo notebook)
 4. A IA gera todos os widgets (KPIs, donut, barras, linha e tabela) já nas cores da Klabin
 5. (Opcional) Continue conversando com o Assistant para ajustar — **sempre por prompt**
 

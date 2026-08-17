@@ -39,7 +39,7 @@
 # MAGIC    - **Catalog**: `workshop_klabin`
 # MAGIC    - **Schema**: `<seu_nome>`
 # MAGIC    - **Table name**: use o nome do arquivo sem a extensão (ex.: `fato_producao`)
-# MAGIC    - **First row contains header**: ativado
+# MAGIC    - **First row contains header**: ativado — para o **CSV** (`fato_producao`) essa opção fica em **Advanced attributes** (expanda a seção); nos **XLSX** das dimensões o cabeçalho já é detectado
 # MAGIC    - Confira os tipos de coluna sugeridos (número vs texto)
 # MAGIC 6. Clique em **Create table**
 # MAGIC

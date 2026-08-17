@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """
-Gera os dados sintéticos do Workshop Klabin em CSV e XLSX.
+Gera os dados sintéticos do Workshop Klabin, prontos para upload manual no
+Databricks (Catalog > Create table > Upload files).
 
-Produz 3 arquivos (1 fato + 2 dimensões), cada um em .csv e .xlsx, prontos para
-upload manual no Databricks (Catalog > Create table > Upload files).
+Produz 3 tabelas (1 fato + 2 dimensões):
+- a **fato** (`fato_producao`) em **.csv** (e também .xlsx);
+- as **dimensões** (`dim_maquinas`, `dim_produtos`) **apenas em .xlsx** — os labs
+  usam somente o Excel das dimensões.
 
 Modelo estrela da produção de celulose e papel do complexo de Telêmaco Borba (PR):
 unidade Monte Alegre (máquinas de papel: kraftliner, cartão, papel para sacos) e a
@@ -107,12 +110,15 @@ def write_csv(path, header, rows):
         w.writerows(rows)
 
 
-def salvar(nome, header, rows):
-    csv_path = os.path.join(HERE, f"{nome}.csv")
-    xlsx_path = os.path.join(HERE, f"{nome}.xlsx")
-    write_csv(csv_path, header, rows)
-    write_xlsx(xlsx_path, header, rows)
-    print(f"  {nome}: {len(rows)} linhas  ->  {nome}.csv + {nome}.xlsx")
+def salvar(nome, header, rows, formatos=("csv", "xlsx")):
+    escritos = []
+    if "csv" in formatos:
+        write_csv(os.path.join(HERE, f"{nome}.csv"), header, rows)
+        escritos.append(f"{nome}.csv")
+    if "xlsx" in formatos:
+        write_xlsx(os.path.join(HERE, f"{nome}.xlsx"), header, rows)
+        escritos.append(f"{nome}.xlsx")
+    print(f"  {nome}: {len(rows)} linhas  ->  {' + '.join(escritos)}")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -211,9 +217,11 @@ for d in range(DIAS):
 
 
 def main():
-    print("Gerando dados do Workshop Klabin (CSV + XLSX)...")
-    salvar("dim_maquinas", HDR_MAQUINAS, maquinas)
-    salvar("dim_produtos", HDR_PRODUTOS, produtos)
+    print("Gerando dados do Workshop Klabin...")
+    # Dimensões: apenas XLSX (os labs usam só o Excel das dimensões)
+    salvar("dim_maquinas", HDR_MAQUINAS, maquinas, formatos=("xlsx",))
+    salvar("dim_produtos", HDR_PRODUTOS, produtos, formatos=("xlsx",))
+    # Fato: CSV (usado nos labs) + XLSX
     salvar("fato_producao", HDR_FATO, fato)
     print(f"\nConcluído! {len(fato)} registros de produção ({DIAS} dias x {len(maquinas)} máquinas).")
     print(f"Arquivos salvos em: {HERE}")

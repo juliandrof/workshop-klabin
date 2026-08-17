@@ -71,7 +71,9 @@ print("Comentários de coluna adicionados!")
 # MAGIC
 # MAGIC 1. Vá em **Genie** (menu lateral) > **New**
 # MAGIC 2. **Título**: `Produção Klabin - <seu_nome>`
-# MAGIC 3. **Tabelas** (adicione, em `workshop_klabin.<seu_nome>`):
+# MAGIC 3. **Adicione as tabelas**: na aba **Configure**, clique em **Add tables** (seção **Data**),
+# MAGIC    navegue no **Catalog** até `workshop_klabin` > `<seu_nome>` e **marque** as 3 tabelas
+# MAGIC    abaixo, depois **Confirm**:
 # MAGIC    - `gold_producao`
 # MAGIC    - `dim_maquinas`
 # MAGIC    - `dim_produtos`
@@ -82,7 +84,7 @@ print("Comentários de coluna adicionados!")
 # MAGIC ## 3. Instruções customizadas do Genie
 # MAGIC
 # MAGIC Este é o passo mais importante! Execute a célula abaixo e **copie o texto** para o
-# MAGIC campo **Instructions** da sua Genie Agent.
+# MAGIC campo **Instructions** da sua Genie Agent — ele fica dentro da aba **Configure**.
 
 # COMMAND ----------
 
