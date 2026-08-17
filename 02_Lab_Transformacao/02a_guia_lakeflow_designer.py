@@ -85,7 +85,7 @@
 
 # COMMAND ----------
 
-dbutils.widgets.text("nome_participante", "", "Seu Nome (sem espaços/acentos)")
+dbutils.widgets.text("nome_participante", "", "Nome no formato nome_sobrenome (ex.: joao_silva)")
 nome = dbutils.widgets.get("nome_participante").strip().lower().replace(" ", "_")
 if nome:
     catalog_name = "workshop_klabin"
