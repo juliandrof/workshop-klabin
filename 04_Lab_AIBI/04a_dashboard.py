@@ -42,22 +42,22 @@ display(spark.sql(f"""
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 2. Criar o Dashboard e abrir o Assistant
+# MAGIC ## 2. Criar o Dashboard e abrir o Genie Code
 # MAGIC
 # MAGIC 1. Vá em **Dashboards** > **Create dashboard**
 # MAGIC 2. **Nome**: `Dashboard Produção Klabin - <seu_nome>`
 # MAGIC 3. Na aba **Data**, adicione a tabela `workshop_klabin.<seu_nome>.gold_producao`
 # MAGIC    como dataset (ou cole `SELECT * FROM workshop_klabin.<seu_nome>.gold_producao`)
-# MAGIC 4. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** (ícone de IA / "Ask the assistant") e
+# MAGIC 4. Na aba **Untitled** (a página inicial do dashboard), abra o **Genie Code** e
 # MAGIC    **cole o prompt padrão** da próxima célula. A IA vai gerar todos os widgets.
 
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 3. O prompt padrão do dashboard (copie e cole no Assistant)
+# MAGIC ## 3. O prompt padrão do dashboard (copie e cole no Genie Code)
 # MAGIC
 # MAGIC Execute a célula abaixo para imprimir o prompt completo. **Cole exatamente esse texto**
-# MAGIC no Assistant do dashboard — ele descreve os gráficos, a ordem e as **cores da Klabin**.
+# MAGIC no Genie Code do dashboard — ele descreve os gráficos, a ordem e as **cores da Klabin**.
 
 # COMMAND ----------
 
@@ -114,7 +114,7 @@ milhar, e percentuais com uma casa decimal.
 """
 
 print("=" * 72)
-print("PROMPT PADRÃO DO DASHBOARD (copie e cole no Assistant do AI/BI)")
+print("PROMPT PADRÃO DO DASHBOARD (copie e cole no Genie Code do AI/BI)")
 print("=" * 72)
 print(prompt_dashboard)
 print("=" * 72)
@@ -124,7 +124,7 @@ print("=" * 72)
 # MAGIC %md
 # MAGIC ## 4. Refinar por prompt (opcional)
 # MAGIC
-# MAGIC Depois de gerar o painel, você pode continuar conversando com o Assistant para ajustar,
+# MAGIC Depois de gerar o painel, você pode continuar conversando com o Genie Code para ajustar,
 # MAGIC **sempre por prompt**. Exemplos:
 # MAGIC
 # MAGIC - *"Troque o gráfico de produção por máquina para mostrar também a meta lado a lado."*

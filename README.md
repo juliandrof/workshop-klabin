@@ -268,11 +268,11 @@ gold_producao.
 
 1. Vá em **Dashboards** > **Create dashboard** e nomeie `Dashboard Produção Klabin - <seu_nome>`
 2. Na aba **Data**, adicione a tabela `gold_producao` como dataset
-3. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** e **cole o prompt padrão** abaixo
+3. Na aba **Untitled** (a página inicial do dashboard), abra o **Genie Code** e **cole o prompt padrão** abaixo
 4. A IA gera todos os widgets (KPIs, donut, barras, linha e tabela) já nas cores da Klabin
-5. (Opcional) Continue conversando com o Assistant para ajustar — **sempre por prompt**
+5. (Opcional) Continue conversando com o **Genie Code** para ajustar — **sempre por prompt**
 
-### Prompt padrão do dashboard (copie e cole no Assistant)
+### Prompt padrão do dashboard (copie e cole no Genie Code)
 
 ```text
 Crie um dashboard de produção industrial para a Klabin (complexo de Telêmaco Borba, PR),
