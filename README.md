@@ -249,9 +249,9 @@ gold_producao.
 | **Objetivo** | Criar **um dashboard padrão de produção**, igual para todos, **usando apenas prompt** |
 | **Notebook** | `04_Lab_AIBI/04a_dashboard.py` |
 
-> **Sem competição.** Todos os participantes terminam com o **mesmo dashboard de referência**,
-> nas **cores da Klabin**. O foco é aprender a gerar e ajustar visualizações **por linguagem
-> natural** — sem montar widget por widget na mão.
+> Todos os participantes terminam com o **mesmo dashboard de referência**, nas **cores da
+> Klabin**. O foco é aprender a gerar e ajustar visualizações **por linguagem natural** —
+> sem montar widget por widget na mão.
 
 ### Cores da Klabin usadas no painel
 
@@ -268,9 +268,52 @@ gold_producao.
 
 1. Vá em **Dashboards** > **Create dashboard** e nomeie `Dashboard Produção Klabin - <seu_nome>`
 2. Na aba **Data**, adicione a tabela `gold_producao` como dataset
-3. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** e **cole o prompt padrão** (impresso pelo notebook)
+3. Na aba **Untitled** (a página inicial do dashboard), abra o **Assistant** e **cole o prompt padrão** abaixo
 4. A IA gera todos os widgets (KPIs, donut, barras, linha e tabela) já nas cores da Klabin
 5. (Opcional) Continue conversando com o Assistant para ajustar — **sempre por prompt**
+
+### Prompt padrão do dashboard (copie e cole no Assistant)
+
+```text
+Crie um dashboard de produção industrial para a Klabin (complexo de Telêmaco Borba, PR),
+usando o dataset gold_producao. Título do dashboard: "Produção Klabin — Telêmaco Borba".
+
+Use SEMPRE esta paleta de cores da Klabin, nesta ordem de prioridade:
+- Verde primário #00843D
+- Verde escuro #004B23
+- Verde claro #7AB800
+- Kraft (marrom papel) #B07A3E
+- Cinza #6E6E6E
+- Areia #E8DFCF
+
+Monte os seguintes widgets, nesta ordem:
+
+1. Uma linha com 4 indicadores (counters) no topo:
+   - Produção total (soma de producao_ton), em toneladas
+   - Máquinas ativas (contagem distinta de nome_maquina)
+   - Atingimento médio da meta (média de atingimento_meta_pct), em %
+   - Energia total consumida (soma de consumo_energia_mwh), em MWh
+
+2. Um gráfico de rosca (donut) com a participação da produção total (producao_ton)
+   por categoria de produto (Celulose vs Papel). Use o verde primário e o kraft.
+
+3. Um gráfico de barras horizontais com a produção total (producao_ton) por
+   nome_maquina, ordenado do maior para o menor, colorido em verde primário.
+
+4. Um gráfico de barras com a produção total (producao_ton) por unidade
+   (Monte Alegre e Puma), colorido com verde escuro e verde claro.
+
+5. Um gráfico de linha com a produção diária total (soma de producao_ton por data),
+   mostrando a evolução ao longo do tempo, na cor verde primário.
+
+6. Uma tabela com: nome_maquina, unidade, linha, produção total (producao_ton),
+   atingimento médio da meta (atingimento_meta_pct) e refugo total (refugo_ton),
+   ordenada pela maior produção.
+
+Adicione filtros (por unidade, por categoria de produto e por período/data) para tornar
+o painel interativo. Formate produção em toneladas e energia em MWh com separador de
+milhar, e percentuais com uma casa decimal.
+```
 
 O prompt padrão gera:
 - **4 counters**: produção total, máquinas ativas, atingimento médio da meta, energia total

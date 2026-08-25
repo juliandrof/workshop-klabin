@@ -4,9 +4,10 @@ Gera os dados sintéticos do Workshop Klabin, prontos para upload manual no
 Databricks (Catalog > Create table > Upload files).
 
 Produz 3 tabelas (1 fato + 2 dimensões):
-- a **fato** (`fato_producao`) em **.csv** (e também .xlsx);
-- as **dimensões** (`dim_maquinas`, `dim_produtos`) **apenas em .xlsx** — os labs
-  usam somente o Excel das dimensões.
+- a **fato** (`fato_producao`) **apenas em .csv**;
+- as **dimensões** (`dim_maquinas`, `dim_produtos`) **apenas em .xlsx**.
+
+(Os labs usam o CSV da fato e o Excel das dimensões.)
 
 Modelo estrela da produção de celulose e papel do complexo de Telêmaco Borba (PR):
 unidade Monte Alegre (máquinas de papel: kraftliner, cartão, papel para sacos) e a
@@ -221,8 +222,8 @@ def main():
     # Dimensões: apenas XLSX (os labs usam só o Excel das dimensões)
     salvar("dim_maquinas", HDR_MAQUINAS, maquinas, formatos=("xlsx",))
     salvar("dim_produtos", HDR_PRODUTOS, produtos, formatos=("xlsx",))
-    # Fato: CSV (usado nos labs) + XLSX
-    salvar("fato_producao", HDR_FATO, fato)
+    # Fato: apenas CSV (usado nos labs)
+    salvar("fato_producao", HDR_FATO, fato, formatos=("csv",))
     print(f"\nConcluído! {len(fato)} registros de produção ({DIAS} dias x {len(maquinas)} máquinas).")
     print(f"Arquivos salvos em: {HERE}")
 

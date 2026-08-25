@@ -6,8 +6,8 @@
 # MAGIC participantes — o mesmo dashboard, criado do zero **usando apenas linguagem natural**
 # MAGIC (sem arrastar widget por widget). A IA do AI/BI monta os gráficos a partir do seu prompt.
 # MAGIC
-# MAGIC > Não é uma competição: o objetivo é todo mundo sair com o **mesmo dashboard de
-# MAGIC > referência**, nas **cores da Klabin**, e entender como gerar visualizações por prompt.
+# MAGIC > O objetivo é todo mundo sair com o **mesmo dashboard de referência**, nas
+# MAGIC > **cores da Klabin**, e entender como gerar visualizações por prompt.
 
 # COMMAND ----------
 
@@ -131,8 +131,8 @@ print("=" * 72)
 # MAGIC - *"Adicione um card com o produto de maior refugo."*
 # MAGIC - *"Deixe o fundo dos títulos em verde {PALETA_KLABIN['verde_primario']}."*
 # MAGIC
-# MAGIC > Todos os participantes terminam com o **mesmo dashboard de referência**, nas cores
-# MAGIC > da Klabin — o foco é aprender a criar e ajustar visualizações **por linguagem natural**.
+# MAGIC > Todos terminam com o **mesmo dashboard de referência**, nas cores da Klabin — o
+# MAGIC > foco é aprender a criar e ajustar visualizações **por linguagem natural**.
 
 # COMMAND ----------
 
